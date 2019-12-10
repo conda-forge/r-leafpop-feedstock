@@ -1,4 +1,4 @@
-{% set version = '0.0.1' %}
+{% set version = "0.0.5" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,10 +11,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/leafpop_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/leafpop/leafpop_{{ version }}.tar.gz
-  sha256: c8ebf7beddc683cace34c437fc935ddca74d4752b527f80b3faea7071c598aad
+  sha256: 0640480770b67b6cf827ed65f0258c354d9b456dbc1bac56329bbeb36c246057
 
 build:
-  number: 2
+  number: 0
   merge_build_host: True  # [win]
   script: R CMD INSTALL --build .
   rpaths:
@@ -34,23 +34,25 @@ requirements:
     - {{posix}}zip  # [win]
   host:
     - r-base
-    - r-rcpp >=1.0.0
+    - r-base
     - r-base64enc
     - r-brew
-    - r-gdalutils
+    - r-htmltools
     - r-htmlwidgets
+    - r-sf
     - r-svglite
     - r-uuid
   run:
     - r-base
     - {{native}}gcc-libs  # [win]
-    - r-rcpp >=1.0.0
     - r-base64enc
     - r-brew
-    - r-gdalutils
+    - r-htmltools
     - r-htmlwidgets
+    - r-sf
     - r-svglite
     - r-uuid
+
 
 test:
   commands:
