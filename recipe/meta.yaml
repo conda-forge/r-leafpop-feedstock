@@ -34,23 +34,25 @@ requirements:
     - {{posix}}zip  # [win]
   host:
     - r-base
-    - r-rcpp >=1.0.0
+    - r-base
     - r-base64enc
     - r-brew
-    - r-gdalutils
+    - r-htmltools
     - r-htmlwidgets
+    - r-sf
     - r-svglite
     - r-uuid
   run:
     - r-base
     - {{native}}gcc-libs  # [win]
-    - r-rcpp >=1.0.0
     - r-base64enc
     - r-brew
-    - r-gdalutils
+    - r-htmltools
     - r-htmlwidgets
+    - r-sf
     - r-svglite
     - r-uuid
+
 
 test:
   commands:
