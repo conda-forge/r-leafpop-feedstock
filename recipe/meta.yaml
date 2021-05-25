@@ -1,4 +1,4 @@
-{% set version = "0.0.6" %}
+{% set version = "0.1.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/leafpop_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/leafpop/leafpop_{{ version }}.tar.gz
-  sha256: 3d9ca31d081ce8540a87790786840bde5f833543af608c53a26623c7874e722f
+  sha256: 6e546886e1db4ad93a038de6d1e8331c0d686e96a0d3f0694e7575471f7d9db1
 
 build:
   number: 0
