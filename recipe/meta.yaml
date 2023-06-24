@@ -14,7 +14,7 @@ source:
   sha256: 6e546886e1db4ad93a038de6d1e8331c0d686e96a0d3f0694e7575471f7d9db1
 
 build:
-  number: 1
+  number: 2
   merge_build_host: true  # [win]
   script: R CMD INSTALL --build .
   rpaths:
