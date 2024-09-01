@@ -1,7 +1,6 @@
 {% set version = "0.1.0" %}
 
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-leafpop
@@ -14,8 +13,7 @@ source:
   sha256: 6e546886e1db4ad93a038de6d1e8331c0d686e96a0d3f0694e7575471f7d9db1
 
 build:
-  number: 2
-  merge_build_host: true  # [win]
+  number: 3
   script: R CMD INSTALL --build .
   rpaths:
     - lib/R/lib/
@@ -24,8 +22,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}  # [not win]
+    - {{ stdlib("c") }}    # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib("m2w64_c") }}    # [win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem  # [win]
     - {{ posix }}make
@@ -44,7 +44,6 @@ requirements:
     - r-uuid
   run:
     - r-base
-    - {{ native }}gcc-libs  # [win]
     - r-base64enc
     - r-brew
     - r-htmltools
