@@ -23,6 +23,14 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-base64enc                # [build_platform != target_platform]
+    - r-uuid                     # [build_platform != target_platform]
+    - r-htmltools                # [build_platform != target_platform]
+    - r-brew                     # [build_platform != target_platform]
+    - r-svglite                  # [build_platform != target_platform]
+    - r-htmlwidgets              # [build_platform != target_platform]
+    - r-sf                       # [build_platform != target_platform]
     - {{ compiler('c') }}  # [not win]
     - {{ compiler('cxx') }}  # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
