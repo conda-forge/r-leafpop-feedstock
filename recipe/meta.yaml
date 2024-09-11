@@ -32,8 +32,10 @@ requirements:
     - r-htmlwidgets              # [build_platform != target_platform]
     - r-sf                       # [build_platform != target_platform]
     - {{ compiler('c') }}  # [not win]
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}  # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib('m2w64_c') }}    # [win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem  # [win]
     - {{ posix }}make
@@ -52,7 +54,6 @@ requirements:
     - r-uuid
   run:
     - r-base
-    - {{ native }}gcc-libs  # [win]
     - r-base64enc
     - r-brew
     - r-htmltools
@@ -60,7 +61,6 @@ requirements:
     - r-sf
     - r-svglite
     - r-uuid
-
 
 test:
   commands:
@@ -76,4 +76,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - ocefpaf
